@@ -1,7 +1,9 @@
 import React from 'react';
+import { useCart } from '../hooks/useCart';
 import '../styles/ProductCard.css';
 
 function ProductCard({ product, onAddToCart }) {
+  const { addToCart } = useCart();
   return (
     <div className="product-card">
       <div className="product-image-container">
@@ -20,7 +22,7 @@ function ProductCard({ product, onAddToCart }) {
         </div>
         <button 
           className="add-to-cart-btn"
-          onClick={() => onAddToCart(product)}
+          onClick={() => addToCart(product)}
           aria-label={`Add ${product.name} to cart`}
         >
           Add to Cart
